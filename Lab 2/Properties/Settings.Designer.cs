@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Vezba2.Properties
+namespace Lab_2.Properties
 {
 
 

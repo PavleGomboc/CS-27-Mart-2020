@@ -1,4 +1,4 @@
-﻿namespace Vezba2
+﻿namespace Lab_2
 {
     partial class Form1
     {

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Vezba2")]
+[assembly: AssemblyTitle("Lab 2")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Vezba2")]
+[assembly: AssemblyProduct("Lab 2")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("992089f8-7fd3-4cab-9f02-f8c70f43577c")]
+[assembly: Guid("9f1a86a2-c29d-4722-82cd-53a5fcab07f0")]
 
 // Version information for an assembly consists of the following four values:
 //
