@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.960
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLCommand - Nastavak", "..\20MART2020\SQLCommand\SQLCommand - Nastavak.csproj", "{3294D945-6C61-468C-A1B6-5F7D2BE7CA8B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab 1", "..\20MART2020\SQLCommand\Lab 1.csproj", "{3294D945-6C61-468C-A1B6-5F7D2BE7CA8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vezba2", "Vezba2\Vezba2.csproj", "{992089F8-7FD3-4CAB-9F02-F8C70F43577C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab 2", "Vezba2\Lab 2.csproj", "{992089F8-7FD3-4CAB-9F02-F8C70F43577C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

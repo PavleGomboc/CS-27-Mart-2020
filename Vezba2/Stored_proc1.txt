@@ -1,0 +1,15 @@
+﻿create proc Sales.PrometZaposleniGodina
+@empid int, @godina int
+AS 
+DECLARE @Promet decimal (10,2);
+select @Promet = sum(OD.unitprice * OD.qty)
+from HR.Employees AS E inner join
+Sales.Orders AS O on E.empid = O.empid INNER join
+Sales.OrderDetails AS OD  ON O.orderid = OD.orderid
+WHERE
+E.empid = @empid AND YEAR(O.orderdate) = @godina
+IF @Promet is null
+set @Promet = 0
+SELECT @Promet;
+GO
+-- EXEC Sales.PrometZaposleniGodina 2, 2008
