@@ -1,0 +1,20 @@
+﻿CREATE PROC Sales.PrometZaKupca
+@custid int
+AS
+SELECT SUM(OD.unitprice*OD.qty) AS Promet
+From Sales.Orders AS O
+	INNER JOIN Sales.OrderDetails AS OD
+	ON O.orderid = OD.orderid
+	WHERE O.custid = @custid;
+	GO
+	--EXEC Sales.PrometZaKupca 13
+
+CREATE PROC Sales.ShippersInsert
+@companyname nvarchar(20), @phone nvarchar(24)
+AS
+INSERT INTO Sales.Shippers
+(companyname,phone)
+VALUES
+(@companyname,@phone);
+GO
+ --EXEC Sales.ShippersInsert N'Test1',N'0038162123456'
