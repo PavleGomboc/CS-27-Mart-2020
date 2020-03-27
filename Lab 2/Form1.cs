@@ -49,5 +49,13 @@ namespace Lab_2
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void cmdInsertDLL_Click(object sender, EventArgs e)
+        {
+            clsMiddleLayer.Products kol = new clsMiddleLayer.Products();
+            int RetVal = kol.ProductsInsert(txtProductName.Text, Int32.Parse(txtSupplierID.Text),
+                Convert.ToInt32(txtCategoryID.Text), Convert.ToDecimal(txtUnitPrice.Text), cboxDisscontinued.Checked);
+            MessageBox.Show(RetVal.ToString());
+        }
     }
 }

@@ -82,5 +82,11 @@
   <ItemGroup>
     <Content Include="SQL.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\clsMiddleLayer\clsMiddleLayer.csproj">
+      <Project>{8d973a8f-cdcc-4285-8af0-da3d8c7be8be}</Project>
+      <Name>clsMiddleLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
