@@ -1,0 +1,21 @@
+﻿CREATE PROC Production.ProductInfo
+@productid int, @productname nvarchar(40) OUTPUT, @unitprice money OUTPUT
+AS 
+SET LOCK_TIMEOUT 3000
+DECLARE @err int
+BEGIN TRY
+SELECT @productname = productname, @unitprice = unitprice
+FROM Production.Products
+WHERE productid = @productid
+RETURN 0
+END TRY
+BEGIN CATCH
+SELECT @err = @@ERROR;
+SELECT @productname=N'error', @unitprice = 0;
+RETURN @err
+END CATCH
+GO
+
+DECLARE @proizvod nvarchar(40), @cena money, @RetVal int
+EXEC @RetVal= Production.ProductInfo 10,@proizvod OUTPUT, @cena OUTPUT
+SELECT @RetVal AS RetVal, @proizvod AS Proizvod, @cena AS Cena
