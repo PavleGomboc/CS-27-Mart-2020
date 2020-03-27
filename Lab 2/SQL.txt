@@ -1,15 +1,49 @@
-﻿create proc Sales.PrometZaposleniGodina
-@empid int, @godina int
-AS 
-DECLARE @Promet decimal (10,2);
-select @Promet = sum(OD.unitprice * OD.qty)
-from HR.Employees AS E inner join
-Sales.Orders AS O on E.empid = O.empid INNER join
-Sales.OrderDetails AS OD  ON O.orderid = OD.orderid
-WHERE
-E.empid = @empid AND YEAR(O.orderdate) = @godina
-IF @Promet is null
-set @Promet = 0
-SELECT @Promet;
+﻿/*
+spec: If Supplier doesn't exist Sepplier -1
+If Category doesn't exist Category -2
+OK, ret 0
+other error msgs ret > 0
+*/
+USE TSQL2012;
 GO
--- EXEC Sales.PrometZaposleniGodina 2, 2008
+CREATE PROC Production.ProductsInsert
+@productname nvarchar(40), @supplierid int,
+@categoryid int, @unitprice money, @discontinued bit = 0
+AS
+SET LOCK_TIMEOUT 3000;
+SET NOCOUNT ON;
+BEGIN TRY
+-- file exists?
+IF NOT EXISTS (SELECT supplierid FROM Production.Suppliers
+WHERE supplierid = @supplierid)
+BEGIN
+RETURN -1;
+END
+
+--categorY?
+
+IF NOT EXISTS (SELECT categoryid FROM Production.Categories 
+WHERE categoryid = @categoryid)
+BEGIN
+RETURN -2;
+END
+
+INSERT INTO Production.Products
+(productname, supplierid, categoryid,unitprice, discontinued)
+VALUES
+(@productname, @supplierid, @categoryid, @unitprice, @discontinued)
+
+RETURN 0 -- If OK
+END TRY
+BEGIN CATCH
+RETURN @@ERROR
+END CATCH
+GO
+
+
+-- TEST
+--
+-- DECLARE @RetVal int
+-- EXEC @RetVal = Production.ProductsInsert
+-- N'Product test', 100, 1, 100.00
+-- PRINT @RetVal
